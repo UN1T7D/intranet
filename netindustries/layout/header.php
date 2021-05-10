@@ -5,7 +5,7 @@
 <head>
   <title>Grupo Guardado : : Intranet</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="w5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
   <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>

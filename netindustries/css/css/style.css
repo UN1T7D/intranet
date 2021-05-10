@@ -1,0 +1,15 @@
+/* Importamos las demas hojas de estilos */
+
+@import url(header.css);
+@import url(footer.css);
+@import url(header.css);
+@import url(floating-labels.css);
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    /* background-color: #E0E6F8; */
+    font-family: 'Century Gothic';
+    font-size: 18px;
+}
