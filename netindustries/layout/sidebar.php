@@ -18,10 +18,9 @@
           </div>
           <div class="description">
             <ul class="sb_menu2">
-              <li class="active"><a href="#">Nombre</a></li>
-              <li><a href="#">Departamento</a></li>
-              <li><a href="#">Edad</a></li>
-              <li><a href="#">Rol</a></li>
+              <li class="active"><a href="#">Nombre: <?=$_COOKIE["usuario"]?></a></li>
+              <li><a href="#">Departamento <?=$_COOKIE["departamento"]?></a></li>
+              <li><a href="#">Edad: <?=$_COOKIE["edad"]?></a></li>
             </ul>
           </div>
         </div>
@@ -34,22 +33,27 @@
         <div class="container-active">
           <div class="profile-active">
             <ul class="sb_menu2">
-              <li class="active"><a href="#">Nombre</a></li>
-              <li><a href="#">Departamento</a></li>
-              <li><a href="#">Edad</a></li>
-              <li><a href="#">Rol</a></li>
-              <li class="active"><a href="#">Nombre</a></li>
-              <li><a href="#">Departamento</a></li>
-              <li><a href="#">Edad</a></li>
-              <li><a href="#">Rol</a></li>
-              <li class="active"><a href="#">Nombre</a></li>
-              <li><a href="#">Departamento</a></li>
-              <li><a href="#">Edad</a></li>
-              <li><a href="#">Rol</a></li>
-              <li class="active"><a href="#">Nombre</a></li>
-              <li><a href="#">Departamento</a></li>
-              <li><a href="#">Edad</a></li>
-              <li><a href="#">Rol</a></li>
+              <?php
+
+                $consulta = "SELECT u.nombre, u.apellido,u.edad, r.departamento  FROM usuarios AS u 
+                INNER JOIN rol AS r ON u.id_rol = r.id_rol";
+                $prepare = $conexion->prepare($consulta);
+                $prepare->execute();
+                $resultado = $prepare->get_result();
+                while ($row = mysqli_fetch_array($resultado)) {
+                  
+
+                
+              ?>
+              <div class="comment"> <a href="#"><img src="images/userpic.gif" width="40" height="40" alt=""
+                                    class="userpic" /></a>
+                            <p><a href="#"><?=$row["departamento"]?></a><br />
+                                <?=$row["nombre"]." ".$row["apellido"]." Edad: ".$row["edad"]?></p>
+                        </div>
+              <?php
+                }
+              ?>
+              
             </ul>
           </div>
         </div>

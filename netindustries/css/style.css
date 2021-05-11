@@ -404,10 +404,12 @@ ol li .send {
 }
 .container-profile .description ul.sb_menu2, .container-profile .description ul.ex_menu, .testi {
 	margin:0;
-	padding-left:20px;
+	padding-left:0px;
+	padding-top:15px;
 	margin-top: 5px;
 	color:#939393;
 	list-style:none;
+	box-sizing: border-box;
 }
 .container-profile .description ul.sb_menu2 li, .container-profile .description ul.ex_menu li {
 	margin:0;
@@ -531,3 +533,71 @@ input.text-comment{
 	display: block;
 	box-sizing: border-box;
 }
+
+.inputs {
+	display: block;
+	width: 80%;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .button{
+	margin-top: 5px;
+	margin-bottom: 10px;
+    text-decoration: none;
+    padding:5px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+
+  .button:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+
+  .table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1rem;
+	background-color: transparent;
+  }
+  
+  .table th,
+  .table td {
+	padding: 0.75rem;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+  }
+
+  .a{
+	  text-decoration: none;
+  }
+
+  .buttonDelete{
+	margin-top: 5px;
+	margin-bottom: 10px;
+    text-decoration: none;
+    padding:5px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #c01111;;
+    border-radius: 6px;
+    border: 2px solid #ad0707;;
+  }
+
+  .buttonDelete:hover{
+    color: #c01111;;
+    background-color: #ffffff;
+  }
