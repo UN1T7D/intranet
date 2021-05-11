@@ -9,9 +9,11 @@
         $encontrado = 0;
         
         $consulta = "SELECT 
+                            u.id_usuario,
                             u.usuario, 
                             u.dui, 
                             u.edad,
+                            u.id_rol,
                             r.departamento 
                     FROM usuarios AS u 
                     INNER JOIN rol AS r 
@@ -32,8 +34,10 @@
                 die(); */
                 $encontrado = 1;
                 setcookie("acceso","intranet",time()+3600);
+                setcookie("id_usuario",$row["id_usuario"],time()+3600);
                 setcookie("usuario",$row["usuario"],time()+3600);
                 setcookie("edad",$row["edad"],time()+3600);
+                setcookie("rol",$row["id_rol"],time()+3600);
                 setcookie("departamento",$row["departamento"],time()+3600);
               /*   echo "se encontro un registro"; */
                 

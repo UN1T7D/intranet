@@ -3,6 +3,17 @@
           <figure>
             <img src="images/cropped-Logo-Grupo-Guardado-180x85.jpg" alt="">
           </figure>
+          <?php
+            if ($_COOKIE["rol"] <= 4) {
+             ?>
+                <a href="index.php?action=publicar" class="new_publiser_tag">
+                  <div class="new_publisher">
+                    Crear una nueva publicacion <i class="fas fa-plus"></i>
+                  </div>
+                </a>
+              <?php
+            }
+          ?>
         </div>
       <div class="gadget">
         <a href="#">

@@ -19,6 +19,8 @@
                     require_once("archivos.php");
                 }elseif ($pagina == "extenciones") {
                     require_once("extenciones.php");
+                }elseif ($pagina == "publicar") {
+                    require_once("publicar.php");
                 }
     
             }else{

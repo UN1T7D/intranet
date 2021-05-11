@@ -1,15 +1,37 @@
+<?php
+    $consulta = "SELECT 
+                    p.id_publicacion, 
+                    p.titulo, 
+                    p.foto, 
+                    p.descripcion, 
+                    p.fecha_creacion, 
+                    u.usuario,
+                    tp.nombre 
+                FROM publicacion AS p 
+                INNER JOIN usuarios AS u 
+                ON
+                p.id_usuario = u.id_usuario
+                INNER JOIN tipo_publicacion AS tp
+                ON
+                p.id_tipo_publicacion = tp.id_tipo_publicacion";
+    $prepare = $conexion->prepare($consulta);
+    $prepare->execute();
+    $resultado = $prepare->get_result();
+?>
+
 <div class="mainbar">
+    <?php
+        while ($row = mysqli_fetch_array($resultado)) {
+           
+        
+    ?>
         <div class="article">
-            <h2><span>Noticias mas actuales</span></h2>
+            <h2><span><?=$row["titulo"]?></span></h2>
             <div class="clr"></div>
-            <p class="post-data"><a href="#" class="com fr">Comentarios (3)</a> <span class="date">Mayo 8, 2021</span>
-                &nbsp;|&nbsp; Posteado por <a href="#">Usuario</a> &nbsp;|&nbsp; Desde <a href="#">Hubicacion</a>, <a
-                    href="#">internet</a></p>
-            <img src="images/images_1.jpg" width="613" height="193" alt="" />
-            <p>This is a free CSS website template by AtomicWebsiteTemplates.com. This work is distributed under the
-                Creative Commons Attribution 3.0 License, which means that you are free to use it for any personal or
-                commercial purpose provided you credit me in the form of a link back to AtomicWebsiteTemplates.com.</p>
-            <!-- <p class="spec"> <a href="#" class="rm fl">Read more</a></p> -->
+                &nbsp;|&nbsp; Posteado por <a href="#"><?=$row["usuario"]?></a> &nbsp;|&nbsp; Hora <a href="#"><?=$row["fecha_creacion"]?></a>, <a
+                    href="#"><?=$row["nombre"]?></a></p>
+            <img src="<?=$row["foto"]?>" width="613" height="193" alt="" />
+            <p><?=$row["descripcion"]?></p>
             <div class="clr"></div>
             <h2><span>3</span> Responses</h2>
             <div class="container-comment">
@@ -49,7 +71,10 @@
                 </div>
             </div>
         </div>
-        <div class="article">
+    <?php
+        }
+    ?>
+        <!-- <div class="article">
             <h2><span>Noticias mas actuales</span></h2>
             <div class="clr"></div>
             <p class="post-data"><a href="#" class="com fr">Comentarios (3)</a> <span class="date">Mayo 8, 2021</span>
@@ -58,9 +83,9 @@
             <img src="images/images_1.jpg" width="613" height="193" alt="" />
             <p>This is a free CSS website template by AtomicWebsiteTemplates.com. This work is distributed under the
                 Creative Commons Attribution 3.0 License, which means that you are free to use it for any personal or
-                commercial purpose provided you credit me in the form of a link back to AtomicWebsiteTemplates.com.</p>
+                commercial purpose provided you credit me in the form of a link back to AtomicWebsiteTemplates.com.</p> -->
             <!-- <p class="spec"> <a href="#" class="rm fl">Read more</a></p> -->
-            <div class="clr"></div>
+            <!-- <div class="clr"></div>
             <h2><span>3</span> Responses</h2>
             <div class="container-comment">
                 <div class="container-comment-historial">
@@ -98,7 +123,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="pagenavi"><span class="pages">Page 1 of 2</span><span class="current">1</span><a href="#">2</a><a
                 href="#">&raquo;</a></div> -->
     </div>
