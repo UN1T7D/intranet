@@ -19,7 +19,7 @@
                         while ($row = mysqli_fetch_array($resultado)) {
                             
                             ?>
-                    <option value="<?=$row[" id_tipo_publicacion"]?>">
+                    <option value="<?=$row["id_tipo_publicacion"]?>">
                         <?=$row["nombre"]?>
                     </option>
                     <?php
@@ -86,7 +86,6 @@
                         <th>Titulo</th>
                         <th>Descripcion</th>
                         <th>Creacion</th>
-                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,7 +103,6 @@
                             <td ><?=$row["titulo"]?></td>
                             <td ><textarea name="" id="" cols="30" rows="6"disabled><?=$row["descripcion"]?></textarea ></td>
                             <td><?=$row["fecha_creacion"]?></td>
-                            <td><a href="index.php?action=publicar&eraser=<?=$row['id_publicacion']?>"><i class="fas fa-trash"></i></a></td>
                         </tr>
                     <?php
                         }
