@@ -13,7 +13,8 @@
                 p.id_usuario = u.id_usuario
                 INNER JOIN tipo_publicacion AS tp
                 ON
-                p.id_tipo_publicacion = tp.id_tipo_publicacion";
+                p.id_tipo_publicacion = tp.id_tipo_publicacion
+                WHERE tp.nombre != 'Capacitaciones' AND tp.nombre != 'Ficheros'";
     $prepare = $conexion->prepare($consulta);
     $prepare->execute();
     $resultado = $prepare->get_result();
@@ -58,7 +59,7 @@
                                         ON
                                         c.id_usuario = u.id_usuario
                                         WHERE c.id_publicacion = ?
-                                        ORDER BY fecha_creacion;";
+                                        ORDER BY fecha_creacion";
                             $prepare2 = $conexion->prepare($consulta2);
                             $prepare2->bind_param("i",$row["id_publicacion"]);
                             $prepare2->execute();

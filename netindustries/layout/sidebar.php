@@ -10,6 +10,11 @@
                   <div class="new_publisher">
                     Crear una nueva publicacion <i class="fas fa-plus"></i>
                   </div>
+                </a><br>
+                <a href="index.php?action=upload" class="new_publiser_tag">
+                  <div class="new_publisher">
+                    Subir ficheros a la red operativa <i class="fas fa-plus"></i>
+                  </div>
                 </a>
               <?php
             }
