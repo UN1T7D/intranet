@@ -36,75 +36,11 @@
         </a>, <a href="#">
             <?=$row["nombre"]?>
         </a></p>
-        <img src="<?=$row['foto']?>" width="613" height="193" alt="" />
-            <textarea name="" id="" cols="30" rows="25" disabled>
-                <?=$row["descripcion"]?>
-            </textarea>
+        <a href="<?=$row['foto']?>">
+            <button><img src="images/upload.png" width="140" height="100" alt="" /><br><br><?=$row["descripcion"]?> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eveniet sed magnam, illo necessitatibus possimus eius autem, illum inventore earum ex sequi voluptatum libero quis itaque rerum porro quidem quo.</button>
+        </a>
         <div class="clr"></div>
-        <h2>Comentarios</h2>
-        <div class="container-comment">
-            <div class="container-comment-historial">
-                <div class="article">
-                    <div class="clr"></div>
-                    <?php
-                            $consulta2 = "SELECT 
-                                            c.id_comentario, 
-                                            u.usuario, 
-                                            c.id_usuario,
-                                            c.id_publicacion, 
-                                            c.descripcion, 
-                                            c.fecha_creacion 
-                                        FROM comentario AS c
-                                        INNER JOIN usuarios AS u
-                                        ON
-                                        c.id_usuario = u.id_usuario
-                                        WHERE c.id_publicacion = ?
-                                        ORDER BY fecha_creacion";
-                            $prepare2 = $conexion->prepare($consulta2);
-                            $prepare2->bind_param("i",$row["id_publicacion"]);
-                            $prepare2->execute();
-                            $resultado2 = $prepare2->get_result();
-                            while ($row2 = mysqli_fetch_array($resultado2)) {
-
-                                if ($row2["id_usuario"] == $_COOKIE["id_usuario"]) {
-                                    ?>
-                                        <div class="comment"> <a href="#"><img src="images/userpic.gif" width="40" height="40" alt=""class="userpic" /></a>
-                                            <p><a > <small><?=$row2["usuario"]?></small></a><br /><?=$row2["fecha_creacion"]?><br>
-                                                
-                                            <form action="" method="post">
-                                                <input type="hidden" name="id_comentario" value="<?=$row2["id_comentario"]?>"><br>
-                                                <button type="submit" name="eliminar_comentario"><i class="fas fa-cog"></i>"Eliminar comentario"</button>
-                                            </form>
-                                            </p>
-                                            <p><?=$row2["descripcion"]?>.</p>
-                                        </div>
-                                    <?php
-                                }else {
-                                    
-                                    ?>
-                                    <div class="comment"> 
-                                        <a href="#"><img src="images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
-                                        <p><a href="#"><?=$row2["usuario"]?></a> Dice:<br /><?=$row2["fecha_creacion"]?></p>
-                                        <p><?=$row2["descripcion"]?>.</p>
-                                    </div>
-                                    <?php
-                                }    
-                                    
-                            }
-
-                        ?>
-                   
-                </div>
-            </div>
-
-            <div class="container-comment-add">
-                <form action="" method="post">
-                    <input type="hidden" name="id_publicacion" value="<?=$row['id_publicacion']?>">
-                    <textarea name="descripcion" id="" cols="100" rows="2" required></textarea><br><br>
-                    <button type="submit" class="enviar" name="comentar">Comentar</button>
-                </form>
-            </div>
-        </div>
+        
     </div>
     <?php
         }
