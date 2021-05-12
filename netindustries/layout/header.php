@@ -36,8 +36,9 @@
           <li class="active"><a href="index.php?action=inicio">Inicio</a></li>
           <li><a href="index.php?action=capacitaciones">Capacitaciones</a></li>
           <li><a href="index.php?action=calendario">Calendario</a></li>
-          <li><a href="index.php?action=archivos">Compartir archivos</a></li>
+          <li><a href="index.php?action=archivos">Archivos</a></li>
           <li><a href="index.php?action=extenciones">Extenciones</a></li>
+          <li><a href="salir.php"><i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
         <div class="clr"></div>
       </div>
