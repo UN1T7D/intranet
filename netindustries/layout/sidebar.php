@@ -3,6 +3,32 @@
           <figure>
             <img src="images/cropped-Logo-Grupo-Guardado-180x85.jpg" alt="">
           </figure>
+          <?php
+            if ($_COOKIE["rol"] <= 4) {
+             ?>
+                <a href="index.php?action=publicar" class="new_publiser_tag">
+                  <div class="new_publisher">
+                    Crear una nueva publicacion <i class="fas fa-plus"></i>
+                  </div>
+                </a><br>
+                <a href="index.php?action=upload" class="new_publiser_tag">
+                  <div class="new_publisher">
+                    Subir ficheros a la red operativa <i class="fas fa-plus"></i>
+                  </div>
+                </a><br>
+              <?php
+            }
+            
+            if ($_COOKIE["rol"] == 1) {
+             ?>
+                <a href="index.php?action=new_user" class="new_publiser_tag">
+                  <div class="new_publisher">
+                    Crear cuenta de usuario <i class="fas fa-plus"></i>
+                  </div>
+                </a>
+             <?php
+            }
+          ?>
         </div>
       <div class="gadget">
         <a href="#">
