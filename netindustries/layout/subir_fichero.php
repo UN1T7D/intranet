@@ -80,7 +80,7 @@ if ($_COOKIE["rol"] != 5) {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Foto</th>
+                        <th>Archivo</th>
                         <th>Titulo</th>
                         <th>Descripcion</th>
                         <th>Creacion</th>
@@ -88,7 +88,7 @@ if ($_COOKIE["rol"] != 5) {
                 </thead>
                 <tbody>
                     <?php
-                        $consulta = "SELECT * FROM publicacion WHERE id_usuario = ? AND id_tipo_publicacion  = 8";
+                        $consulta = "SELECT * FROM publicacion WHERE id_usuario = ? ";
                         $prepare = $conexion->prepare($consulta);
                         $prepare->bind_param("i",$_COOKIE["id_usuario"]);
                         $prepare->execute();

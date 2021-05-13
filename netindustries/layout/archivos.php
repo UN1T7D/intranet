@@ -15,37 +15,43 @@
                 INNER JOIN tipo_publicacion AS tp
                 ON
                 p.id_tipo_publicacion = tp.id_tipo_publicacion
-                WHERE tp.id_tipo_publicacion > 7";
+                WHERE tp.id_tipo_publicacion > 7
+                ORDER BY  p.id_publicacion DESC";
     $prepare = $conexion->prepare($consulta);
     $prepare->execute();
     $resultado = $prepare->get_result();
 ?>
 
 <div class="mainbar">
+    <h2><span>FICHEROS DE LA INTRANET</span></h2>
+            <div class="clr"></div>
+    <div class="container-file">
     <?php
         while ($row = mysqli_fetch_array($resultado)) {
     ?>
-    <div class="article">
-        <h2><span>
-                <?=$row["titulo"]?>
-            </span></h2>
-        <div class="clr"></div>
-        &nbsp;|&nbsp; Posteado por <a href="#">
-            <?=$row["usuario"]?>
-        </a> &nbsp;|&nbsp; Hora <a href="#">
-            <?=$row["fecha_creacion"]?>
-        </a>, <a href="#">
-            <?=$row["nombre"]?>
-        </a></p>
-        <a href="<?=$row['foto']?>">
-            <button><img src="images/upload.png" width="140" height="100" alt="" /><br><br><?=$row["descripcion"]?>.</button>
-        </a>
-        <div class="clr"></div>
-        
-    </div>
-    <?php
+
+        <div class="article">
+            <h2><span>
+                    <?=$row["titulo"]?>
+                </span></h2>
+            <div class="clr"></div>
+            &nbsp;|&nbsp; Posteado por <a href="#">
+                <?=$row["usuario"]?>
+            </a> &nbsp;|&nbsp; Hora <a href="#">
+                <?=$row["fecha_creacion"]?>
+            </a>, <a href="#">
+                <?=$row["nombre"]?>
+            </a></p>
+            <a href="<?=$row['foto']?>">
+                <button><img src="images/upload.png" width="140" height="100" alt="" /><br><br><?=$row["descripcion"]?>.</button>
+            </a>
+            <div class="clr"></div>
+            
+        </div>
+        <?php
         }
-    ?>
+        ?>
+        </div>
 </div>
 
 <?php
